@@ -184,7 +184,7 @@ SYSTEMD_AUTO_ENABLE = "enable"
 # bb.fatal on every one of them. COMPATIBLE_MACHINE makes bitbake cleanly
 # skip the recipe there instead, exactly like an unmapped MACHINE should be
 # handled: refuse to guess, don't crash the whole layer set.
-COMPATIBLE_MACHINE = "^(jetson-orin-nano-devkit|jetson-orin-nano-devkit-nvme|p3509-a02-p3767-0000|p3768-0000-p3767-0000|p3768-0000-p3767-0001|p3768-0000-p3767-0003|p3768-0000-p3767-0004|jetson-agx-orin-devkit|jetson-agx-orin-devkit-industrial|p3737-0000-p3701-0004|p3737-0000-p3701-0005|zynq-ultrascale|zynq-7000|imx8m-plus|sitara-am62|raspberrypi4-64|raspberrypi5|qemux86-64|genericx86-64)$"
+COMPATIBLE_MACHINE = "^(jetson-orin-nano-devkit|jetson-orin-nano-devkit-nvme|p3509-a02-p3767-0000|p3768-0000-p3767-0000|p3768-0000-p3767-0001|p3768-0000-p3767-0003|p3768-0000-p3767-0004|jetson-agx-orin-devkit|jetson-agx-orin-devkit-industrial|p3737-0000-p3701-0004|p3737-0000-p3701-0005|zynq-ultrascale|zynq-7000|imx8m-plus|sitara-am62|raspberrypi4-64|raspberrypi5|qemux86-64|genericx86-64|am62axx-evm)$"
 
 INSTR_BOARD ?= ""
 
@@ -214,6 +214,12 @@ INSTR_BOARD:raspberrypi4-64 = "rpi-4b"
 INSTR_BOARD:raspberrypi5 = "rpi-5"
 INSTR_BOARD:qemux86-64 = "x86-64"
 INSTR_BOARD:genericx86-64 = "x86-64"
+
+# Joshua-OS's actual machine (am62axx-evm, TI Sitara AM62A) has no
+# descriptor set of its own; it's the same Sitara AM62 SoC family as the
+# existing "sitara-am62" descriptors, so this maps to that rather than
+# leaving it unmapped.
+INSTR_BOARD:am62axx-evm = "sitara-am62"
 
 # Stop the build on an unmapped MACHINE rather than installing another board's
 # descriptors. A wrong descriptor set does not fail loudly at runtime -- the
