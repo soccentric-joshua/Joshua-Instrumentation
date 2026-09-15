@@ -37,7 +37,7 @@ SRC_URI = "git://github.com/soccentric-joshua/Joshua-Instrumentation.git;protoco
 # this recipe was first written -- confirmed by an actual do_fetch
 # failure (exit code 128) the first time this SRC_URI was ever
 # actually fetched anywhere in the fleet.
-INSTR_SRCREV ?= "ab19e7aaec0fcda3fc0b541866d59c0320450b80"
+INSTR_SRCREV ?= "7f8db54"
 SRCREV = "${@d.getVar('AUTOREV') if d.getVar('JOSHUA_DEV_BUILD') == '1' else d.getVar('INSTR_SRCREV')}"
 # One version for the whole suite (REQ §2). This used to read PV from
 # S/VERSION via a python expression: PV -> S -> WORKDIR -> PV (WORKDIR's own
