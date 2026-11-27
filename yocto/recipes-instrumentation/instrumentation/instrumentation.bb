@@ -18,7 +18,7 @@ SRC_URI = "git://github.com/soccentric-joshua/Joshua-Instrumentation.git;protoco
 # -- a release build must never silently float.
 # Held in its own variable: referencing SRCREV from inside SRCREV's own
 # expansion is self-referential and bitbake would recurse on it.
-INSTR_SRCREV ?= "3c09583136b75113335e73028dc22e58eec6ccf5"
+INSTR_SRCREV ?= "55e18b66f6b19b701de4d610a96e6538263aafc4"
 SRCREV = "${@d.getVar('AUTOREV') if d.getVar('JOSHUA_DEV_BUILD') == '1' else d.getVar('INSTR_SRCREV')}"
 # One version for the whole suite (REQ §2). This used to read PV from
 # S/VERSION via a python expression: PV -> S -> WORKDIR -> PV (WORKDIR's own
